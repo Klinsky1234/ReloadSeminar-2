@@ -3,15 +3,43 @@
  78 -> 8
  12 -> 2
  85 -> 5 */
-// Next - это выбор случайного числа 
+// Цикл while и цикл for решают одну и ту же задачу 
 int i = 0;
 while (i < 10)
 {
     Console.Write($"{i} ");
     i++;
 }
-Console.WriteLine();
-for (int b = 0; b < 10; b++)
+Console.WriteLine($"- цикл while");
+
+for (int j = 0; j < 10; j++)
 {
-    Console.Write($"{b} ");
+    Console.Write($"{j} ");
 }
+Console.WriteLine($"- цикл for");
+Console.WriteLine($"----------------------------");
+int num = new Random().Next(10, 100); // Next - это выбор случайного числа только целые числа 
+Console.Write($"{num} - random");
+Console.WriteLine();
+string num_1 = num.ToString(); // преобразовывает нашу переменную в стринг и потом мы сможем разобрать его т.к. строка имеет номера 
+int a = int.Parse(num_1[0].ToString());//т.е. мы берём левый (нулевой) символ преобразуем в стринг и потом преобр. в инт 
+int b = int.Parse(num_1[1].ToString()); // int.Parse - перевод в целое число, мы берём какой-то текст и переводим его в число
+if (a > b)
+{
+    Console.WriteLine($"Наибольшее число: {a}");
+}
+else
+    Console.WriteLine($"Наибольшее число: {b}");
+Console.WriteLine($"----------------------------"); // ниже простой варик решения задачи 
+int a1 = num % 10; // % 10 - получаем остаток от деления на 10 (100,1000) и т.д. 
+int b1 = num / 10; // деля на 10 мы полчаем первое целое число остаток не считается
+if (a1 > b1)
+{
+    Console.WriteLine($"Наибольшее число: {a1} - простой способ с %10 и /10");
+}
+else
+    Console.WriteLine($"Наибольшее число: {b1}");
+Console.WriteLine($"----------------------------");
+int k = 100;// количество нулей - это количество знаков после запятой в нашем Рандоме 
+double num2 = new Random().Next(10 * k, 100 * k) / (double)k; // что бы получить дробь или прописать 10.0
+Console.Write($"{num2} - random 2");// теперь мы будем получать в Рандоме дроби 
