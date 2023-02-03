@@ -7,5 +7,16 @@
 int a;
 Console.WriteLine($" Введите трёхначное число:  ");
 int.TryParse(Console.ReadLine(), out a);
-double c = (a / 10) % 10;
-Console.WriteLine($"a = {a} ->{c}");
+if (a > 1000)
+{
+    Console.WriteLine($" Вы ввели не трёхзначное число, введите число менее 1000");
+}
+else if (a < 100)
+{
+    Console.WriteLine($" Вы ввели не трёхзначное число, введите число больше 99");
+}
+else
+{
+    int c = (a / 10) % 10;
+    Console.WriteLine($"a = {a} -> {c}");
+}
